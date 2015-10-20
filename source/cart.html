@@ -1,5 +1,54 @@
 {% if cart.items != blank %}
+<section class="cart">
+  <div class="wrapper">
+  <form method="post" action="/cart">
+
+    <ul class="cart-titles">
+      <li class="cart-item-name">Item</a></li>
+      <li class="cart-item-size">Size</li>
+      <li class="cart-item-quantity">Quantity</li>
+      <li class="cart-item-price">Subtotal</li>
+    </ul>    
+
+    {% for item in cart.items %}
+    <ul class="cart-items" id="{{ item.id }}">
+      <li class="cart-item-name"><a href="{{ item.product.url }}" title="{{ item.product.name }}">{{ item.product.name }}</a></li>
+      <li class="cart-item-size">{{ item.option.name }}</li>
+      <li class="cart-item-quantity">{{ item.quantity }}</li>
+      <li class="cart-item-price">{{ item.price | money_with_code }}</li>
+      <li class="cart-item-remove"><a href="#" title="Remove item">X</a></li>
+    </ul>
+    {% endfor %}
+
+    <ul class="cart-total">
+      <li class="cart-total-title">Total:</li>
+      <li class="cart-total-amount"><span>{{ cart.total | money_with_code }}</span></li>
+    </ul>
+
+    <ul class="cart-info">
+      <li class="cart-info-text">Shipping and optional discount will be applied on checkout!</li>
+    </ul>
+
+    <ul class="cart-checkout">
+      <li class="cart-checkout-button"><button type="submit" name="checkout" title="Checkout"><span>Checkout</span></button></li>
+    </ul>
+
+  </form>
+  </div>
+</section>
 
 {% else %}
 
+<section class="cart">
+<div class="wrapper">
+  <p>Your cart is empty! Start throwing stuff into your bag!</p>
+  {% paginate products from products.current by 1 %}
+    {% if products != blank %}
+    {% for product in products %}
+    <h3><a href="/products" class="button">Shop now</a></h3>
+    {% endfor %}
+    {% endif %}
+  {% endpaginate %}
+</div>
+</section>
 {% endif %}

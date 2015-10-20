@@ -1,6 +1,9 @@
 /*
  *= require_directory ./stylesheets/vendor
+ *= require stylesheets/fonts
+ *= require stylesheets/config
  *= require stylesheets/layout
+ *= require stylesheets/home
  *= require stylesheets/products
  *= require stylesheets/product
  *= require stylesheets/cart

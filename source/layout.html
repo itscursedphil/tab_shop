@@ -17,5 +17,27 @@
 
   <body id="{{ page.permalink }}" class="{{ page.category }}">
 
+    <header>
+      <h1><a href="/" title="This Ain't Bristol">This Ain't Bristol</a></h1>
+      {% assign productCount = products.all | size %}
+      {% if productCount > 1 %}
+      <nav class="top-nav nav-products">
+        <ul>
+          {% for category in categories.active %}
+          <li><a href="{{ category.url }}" title="{{ category.name }}">{{ category.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+      {% endif %}
+      <nav id="top-nav nav-overview">
+        <ul>
+          <li><a href="/cart" title="View shopping cart">View cart ({{ cart.total | money_with_code }})</a></li>
+          <li><a href="/contact" title="Contact us">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    {{ page_content }}
+
   </body>
 </html>

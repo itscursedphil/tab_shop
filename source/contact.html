@@ -1,0 +1,46 @@
+{% if contact.sent %}
+
+<section class="contact success">
+  <div class="">
+    <h2>Cheers!</h2>
+    <p>Your message has been sent! We'll try to get back at you as soon as possible!</p>
+    <h3><a href="/products" class="button">Shop now</a></h3>
+  </div>
+ </section>
+
+{% else %}
+<section class="contact">
+  <div class="">
+
+    <div class="contact-text">
+      <h2>Contact us</h2>
+      <p>Feel free to reach out to us if you have any questions before or after placing your order. We'll be happy to help where we can!</p>
+    </div>
+
+    <div class="contact-form">
+      <form method="post" action="/contact">
+
+        {{ contact | contact_input: 'name' }}
+        <label for="name">Name</label>
+
+        {{ contact | contact_input: 'email' }}
+        <label for="email">Email</label>
+
+        {{ contact | contact_input: 'subject' }}
+        <label for="subject">Subject</label>
+
+        {{ contact | contact_input: 'message' }}
+        <label for="message">Message</label>
+
+        <div class="captcha">{{ contact.captcha }}</div>
+        {{ contact | contact_input: 'captcha' }}
+        <label for="captcha">Spam check: Please enter the characters from the image above!</label>
+
+        <button type="submit" name="submit" title="Send us an email"><span>Send</span></button>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+{% endif %}
