@@ -1,20 +1,84 @@
 <section class="lookbook">
+	<div class="carousel">
+		<div class="carousel-img carousel-img-active" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_whitetee_lookbook1.jpg')"></div>
+		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_whitetee_lookbook2.jpg')"></div>
+		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_whitetee_lookbook3.jpg')"></div>
+		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_whitetee_lookbook4.jpg')"></div>
+		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_whitetee_lookbook5.jpg')"></div>
+		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_whitetee_lookbook6.jpg')"></div>
+		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_whitetee_lookbook7.jpg')"></div>
+		<ul class="carousel-nav">
+		</ul>
+	</div>
 	{% for product in products.all %}
 	{% if product.id == 10180984 %}
-	<div class="carousel">
-		<img src="" alt="">
-		<img src="" alt="">
-		<img src="" alt="">
-		<img src="" alt="">
-		<img src="" alt="">
-	</div>
-	<div class="" id="{{ product.id }}">
-		<span class="title-small">Fresh in stock</span>
-		<h2 class="product-title">{{ product.name }}</h2>
-		<span class="divider-wave">
-		<p class="product-description">{{ product.description | truncatewords: 40 }}</p>
-		<h3><a href="/products" class="button-big">Shop now</a></h3>
+	<div class="wrapper col1">
+		<div class="product product-featured" id="{{ product.id }}">
+			<span class="product-title-small">Fresh in stock</span>
+			<h2 class="product-title"><a href="{{ product.url }}">{{ product.name }}</a></h2>
+			<span class="divider-wave"></span>
+			<p class="product-description">{{ product.description | truncatewords: 40 }}</p>
+			<h3><a href="/products" class="button-big">Shop now</a></h3>
+		</div>
 	</div>
 	{% endif %}
 	{% endfor %}
 </section>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('header').addClass('lookbook');
+  $('footer').addClass('lookbook');
+
+  var carousel = function(indexImage){
+    var winHeight = $(window).height();
+    var carousel = $('.carousel');
+    var images = $('.carousel .carousel-img');
+    var numImages = images.length;
+    var carouselNav = $('.carousel .carousel-nav');
+    var i = indexImage;
+    var newInterval;
+
+    var cycleCarousel = function(i){
+      clearInterval(newInterval);
+      var startCarousel = function(){
+          images.eq(i).removeClass('carousel-img-active');
+          i++;
+          cycleCarousel(i);
+        };
+      if(i < numImages){
+
+        if(!images.eq(i).hasClass('carousel-img-active')){
+          images.eq(i).addClass('carousel-img-active');
+        }
+
+        newInterval = setInterval(startCarousel, 6000);
+
+      } else {
+        cycleCarousel(0);
+      }
+    };
+
+    var carouselNavClicked = function(){
+      var index = $(this).index();
+      $('.carousel .carousel-img.carousel-img-active').removeClass('carousel-img-active');
+      cycleCarousel(index);
+    };
+    
+    var initCarousel = function(i){
+      images.height(winHeight);
+      for(index = 0; index < numImages; index++){
+        carouselNav.append('<li class="carousel-nav-bullet"></li>');
+      }
+      $('.carousel .carousel-nav .carousel-nav-bullet').each(function(){
+        $(this).bind('click', carouselNavClicked);
+      });
+      cycleCarousel(i);
+    };
+
+    initCarousel(i);
+
+  };
+  
+  carousel(0);
+});	
+</script>

@@ -1,0 +1,173 @@
+.cart
+	.cart-items.cart-row:last-child
+		border: none
+
+	.cart-items.cart-row:first-child
+		@media (max-width: 580px)
+			border-top: 4px solid black
+
+	.cart-row
+		list-style-type: none
+		margin: 0
+		padding: 10px 0
+		display: block
+		position: relative
+
+		&:after
+			content: ''
+			width: 100%
+			display: block
+			clear: both
+
+		.cart-item
+			display: inline-block
+			float: left
+
+			@media (max-width: 580px)
+				display: block
+				float: none
+
+		.cart-col4
+			width: 40%
+
+			@media (max-width: 580px)
+				width: 100%
+
+		.cart-col2
+			width: 20%
+
+			@media (max-width: 580px)
+				width: 100%
+
+	.cart-titles
+		border-bottom: 4px solid black
+
+		@media (max-width: 580px)
+			display: none
+
+	.cart-total
+		border-top: 4px solid black
+
+		@media (max-width: 580px)
+			text-align: center
+
+		.cart-total-amount
+			position: relative
+			
+			&:after
+				content: ''
+				position: absolute
+				bottom: -5px
+				left: 0
+				width: 100%
+				height: 3px
+				border-top: 1px solid black
+				border-bottom: 1px solid black
+
+
+	.cart-total, .cart-info, .cart-checkout, .cart-errors
+		&:before
+			content: ''
+			display: inline-block
+			height: 1em
+			width: 60%
+			float: left
+
+			@media (max-width: 580px)
+				display: none
+
+	.cart-errors
+		.cart-error-message
+			color: red
+
+	.cart-checkout
+		.button-small
+			width: 100%
+
+			&.button-transparent
+				margin-bottom: 10px
+
+	.cart-items
+		border-bottom: 1px solid black
+
+		.cart-item-quantity-add, .cart-item-quantity-remove
+			display: inline-block
+			width: 0.8em
+			height: 0.8em
+			text-indent: -9999px
+			color: transparent
+			position: relative
+			top: 4px
+			opacity: 0.4
+			transition: all 0.3s ease-in-out
+
+			&:hover
+				opacity: 1
+
+			&:after
+				content: ''
+				position: absolute
+				display: block
+				width: 100%
+				height: 0
+				border-top: 1px solid black
+				border-bottom: 1px solid black
+				top: 50%
+				left: 0
+
+		.cart-item-quantity-remove
+			margin-right: 10px
+
+		.cart-item-quantity-add
+			margin-left: 10px
+
+			&:before
+				content: ''
+				position: absolute
+				display: block
+				width: 100%
+				height: 0
+				border-top: 1px solid black
+				border-bottom: 1px solid black
+				top: 50%
+				left: 0
+				transform: rotate(90deg)
+
+
+		.cart-item-remove 
+			position: absolute
+			float: none
+			right: 0
+			top: 10px
+
+			a
+				display: block
+				width: 1.4em
+				height: 1.4em
+				font-size: 1em
+				color: transparent
+				text-indent: -9999px
+				position: relative
+				transform: rotate(0)
+				transition: all 0.5s ease-in-out
+				overflow: hidden
+
+				&:hover
+					transform: rotate(360deg)
+
+				&:before, &:after
+					content: ''
+					width: 1.4em
+					height: 0
+					position: absolute
+					top: 50%
+					border-top: 3px solid black
+
+				&:before
+					left: 0
+					transform: rotate(45deg)
+
+				&:after
+					right: 0
+					transform: rotate(-45deg)
+

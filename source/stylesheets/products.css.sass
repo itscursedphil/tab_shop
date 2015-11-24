@@ -1,0 +1,194 @@
+.products
+	padding-bottom: 80px
+
+	@media (max-width: 520px)
+		padding-bottom: 40px
+
+	.products-row
+		@media (max-width: 760px)
+			padding: 0 20px
+
+	.category
+		text-align: center
+		padding: 140px 0
+
+		@media (max-width: 980px)
+			padding: 100px 0
+
+		@media (max-width: 760px)
+			padding: 60px 0
+
+		@media (max-width: 360px)
+			padding: 100px 0
+
+		&:first-child
+			padding-top: 100px
+
+			@media (max-width: 980px)
+				padding-top: 60px
+
+			@media (max-width: 760px)
+				padding-top: 20px
+
+			@media (max-width: 360px)
+				padding-top: 40px
+
+		.category-name
+			position: relative
+			transition: all 0.5s ease-in-out
+
+			&:after
+				content: ''
+				position: absolute
+				left: 50%
+				bottom: -5px
+				width: 60%
+				height: 0
+				border-bottom: 1px solid black
+				transform: translateX(-50%)
+
+	.product
+		position: relative
+
+		&.col2
+			@media (max-width: 680px)
+				width: 100%
+				float: none
+
+				&:before, &:after
+					content: ''
+					display: block
+					width: 100%
+					clear: both
+
+			@media (max-width: 360px)
+				padding-left: 0
+				padding-right: 0
+
+		@media (max-width: 360px)
+			padding-bottom: 80px
+
+			&:last-child
+				padding-bottom: 0
+
+		.product-images
+			padding: 0
+
+			@media (max-width: 360px)
+				float: none
+				width: 100%
+
+			.product-image
+				max-width: 80%
+				display: block
+				margin: 0 auto
+				transform: scale(1)
+				transition: all 0.5s ease-in-out
+
+				&:hover
+					transform: scale(1.2)
+
+					@media (max-width: 360px)
+						transform: scale(1.1)
+
+				@media (max-width: 980px)
+					max-width: 100%
+
+				@media (max-width: 680px)
+					max-width: 80%
+
+
+		.product-details
+			padding: 0
+			position: absolute
+			right: 0
+			top: 50%
+			transform: translateY(-60%)
+
+			@media (max-width: 760px)
+				transform: translateY(-55%)
+
+			@media (max-width: 360px)
+				float: none
+				transform: translateY(0)
+				position: relative
+				top: auto
+				right: auto
+				left: auto
+				width: 100%
+				padding-top: 20px
+
+			.product-title
+				font-size: 2.8em
+				line-height: 1.1em
+				position: relative
+
+				@media (max-width: 980px)
+					font-size: 2.4em
+					padding: 10px 20px
+
+				@media (max-width: 680px)
+					font-size: 2.8em
+
+				@media (max-width: 420px)
+					font-size: 2.4em
+
+
+				&:after
+					content: ''
+					display: block
+					position: absolute
+					width: 20px
+					height: 0
+					border-bottom: 1px solid black
+					left: 50%
+					bottom: -2px
+					transform: translateX(-50%)
+
+			.button-small
+				min-width: auto
+				width: 80%
+				margin-top: 20px
+
+			.button-sold-out
+				background: transparent
+				border: none
+				padding: 0
+				line-height: 1em
+
+		&:nth-child(even)
+			margin-top: 100px
+
+			@media (max-width: 980px)
+				margin-top: 60px
+
+			@media (max-width: 680px)
+				margin-top: 0
+
+		@media (max-width: 680px)			
+			&:nth-child(even) .product-details, &:nth-child(even) .product-images
+				float: right
+				margin-top: 80px
+
+			&:nth-child(even) .product-details
+				right: auto
+				left: 0
+
+		@media (max-width: 420px)
+			&:nth-child(even) .product-details, &:nth-child(even) .product-images
+				margin-top: 40px
+
+		@media (max-width: 360px)
+			&:nth-child(even) .product-details, &:nth-child(even) .product-images
+				float: none
+				margin-top: 0
+
+	.products-single
+		float: none
+		margin: 0 auto
+
+		&:before, &:after
+			content: ''
+			width: 100%
+			display: block
+			clear: both

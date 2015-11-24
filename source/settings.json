@@ -70,7 +70,7 @@
       "label": "Products per page",
       "type": "select",
       "options": "1..100",
-      "default": 9,
+      "default": 100,
       "description": "The number of products shown per page"
     },
     {
