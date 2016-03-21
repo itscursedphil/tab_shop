@@ -17,8 +17,8 @@
 			{% if product.status == 'active' %}
 			<a href="{{ product.url }}" title="Buy {{ product.name }}" class="button-small button-transparent"><span class="anim-underline">{{ product.default_price | money_with_code }}</span></a>
 			{% else %}
-          	<span class="button-small button-sold-out">Sold out!</span>
-        	{% endif %}
+      <span class="button-small button-sold-out">Sold out!</span>
+      {% endif %}
 		</div>
 	</div>
 	{% endfor %}

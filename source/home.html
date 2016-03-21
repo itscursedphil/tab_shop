@@ -1,17 +1,19 @@
 <section class="lookbook">
 	<div class="carousel">
-		<div class="carousel-img carousel-img-active" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_whitetee_lookbook1.jpg')"></div>
-		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_whitetee_lookbook2.jpg')"></div>
-		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_whitetee_lookbook3.jpg')"></div>
-		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_whitetee_lookbook4.jpg')"></div>
-		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_whitetee_lookbook5.jpg')"></div>
-		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_whitetee_lookbook6.jpg')"></div>
-		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_whitetee_lookbook7.jpg')"></div>
+		<div class="carousel-img carousel-img-active" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_classic-black-tee_lookbook-1_small.jpg')"></div>
+		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_classic-black-tee_lookbook-2_small.jpg')"></div>
+		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_classic-black-tee_lookbook-3_small.jpg')"></div>
+		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_classic-black-tee_lookbook-4_small.jpg')"></div>
+		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_classic-black-tee_lookbook-5_small.jpg')"></div>
+		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_classic-black-tee_lookbook-6_small.jpg')"></div>
+		<div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_classic-black-tee_lookbook-7_small.jpg')"></div>
+    <div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_classic-black-tee_lookbook-8_small.jpg')"></div>
+    <div class="carousel-img" style="background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_bigcartel_classic-black-tee_lookbook-9_small.jpg')"></div>
 		<ul class="carousel-nav">
 		</ul>
 	</div>
 	{% for product in products.all %}
-	{% if product.id == 10180984 %}
+	{% if product.id == 30772723 %}
 	<div class="wrapper col1">
 		<div class="product product-featured" id="{{ product.id }}">
 			<span class="product-title-small">Fresh in stock</span>
@@ -63,7 +65,7 @@ $(document).ready(function() {
       $('.carousel .carousel-img.carousel-img-active').removeClass('carousel-img-active');
       cycleCarousel(index);
     };
-    
+
     var initCarousel = function(i){
       images.height(winHeight);
       for(index = 0; index < numImages; index++){
@@ -78,7 +80,7 @@ $(document).ready(function() {
     initCarousel(i);
 
   };
-  
+
   carousel(0);
-});	
+});
 </script>

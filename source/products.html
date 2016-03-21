@@ -10,16 +10,16 @@
 	<div class="product col2">
 	{% endif %}
 		<div class="product-images col2">
-			<a href="{{ product.url }}" title="Buy {{ product.name }}"><!--<img src="{{ product.image | product_image_url }}" alt="{{ product.name }}" class="product-image">-->
-			<img src="https://images.bigcartel.com/bigcartel/product_images/161634316/max_h-1000+max_w-1000/thisaintbristol_bigcartel_whitetee_product1.jpg" alt="{{ product.name }}" class="product-image"></a>
+			<a href="{{ product.url }}" title="Buy {{ product.name }}"><img src="{{ product.image | product_image_url }}" alt="{{ product.name }}" class="product-image"></a>
+			<!--<img src="https://images.bigcartel.com/bigcartel/product_images/161634316/max_h-1000+max_w-1000/thisaintbristol_bigcartel_whitetee_product1.jpg" alt="{{ product.name }}" class="product-image"></a>-->
 		</div>
 		<div class="product-details col2">
 			<h2 class="product-title"><a href="{{ product.url }}" title="Buy {{ product.name }}">{{ product.name }}</a></h2>
 			{% if product.status == 'active' %}
 			<a href="{{ product.url }}" title="Buy {{ product.name }}" class="button-small button-transparent"><span class="anim-underline">{{ product.default_price | money_with_code }}</span></a>
 			{% else %}
-          	<span class="button-small button-sold-out">Sold out!</span>
-        	{% endif %}
+      <span class="button-small button-sold-out">Sold out!</span>
+    	{% endif %}
 		</div>
 	</div>
 	{% endfor %}
