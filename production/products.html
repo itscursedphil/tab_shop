@@ -1,0 +1,57 @@
+{% if page.full_url contains '/category' %}
+
+<section class="products top-space">
+	<div class="category wrapper col1"><span class="category-name">{{ page.name }}</span></div>
+	<div class="products-row wrapper col1">
+	{% for product in products.current %}
+	{% if products.current.size == 1 %}
+	<div class="product products-single col2">
+	{% else %}
+	<div class="product col2">
+	{% endif %}
+		<div class="product-images col2">
+			<a href="{{ product.url }}" title="Buy {{ product.name }}"><img src="{{ product.image | product_image_url }}" alt="{{ product.name }}" class="product-image"></a>
+		</div>
+		<div class="product-details col2">
+			<h2 class="product-title"><a href="{{ product.url }}" title="Buy {{ product.name }}">{{ product.name }}</a></h2>
+			{% if product.status == 'active' %}
+			<a href="{{ product.url }}" title="Buy {{ product.name }}" class="button-small button-transparent"><span class="anim-underline">{{ product.default_price | money_with_code }}</span></a>
+			{% else %}
+          	<span class="button-small button-sold-out">Sold out!</span>
+        	{% endif %}
+		</div>
+	</div>
+	{% endfor %}
+	</div>
+</section>
+
+{% else %}
+
+<section class="products top-space">
+	{% for category in categories.active %}
+	<div class="category wrapper col1"><span class="category-name">{{ category.name }}</span></div>
+	<div class="products-row wrapper col1">
+	{% for product in category.products %}
+	{% if category.products.size == 1 %}
+	<div class="product products-single col2">
+	{% else %}
+	<div class="product col2">
+	{% endif %}
+		<div class="product-images col2">
+			<a href="{{ product.url }}" title="Buy {{ product.name }}"><img src="{{ product.image | product_image_url }}" alt="{{ product.name }}" class="product-image"></a>
+		</div>
+		<div class="product-details col2">
+			<h2 class="product-title"><a href="{{ product.url }}" title="Buy {{ product.name }}">{{ product.name }}</a></h2>
+			{% if product.status == 'active' %}
+			<a href="{{ product.url }}" title="Buy {{ product.name }}" class="button-small button-transparent"><span class="anim-underline">{{ product.default_price | money_with_code }}</span></a>
+			{% else %}
+          	<span class="button-small button-sold-out">Sold out!</span>
+        	{% endif %}
+		</div>
+	</div>
+	{% endfor %}
+	</div>
+	{% endfor %}
+</section>
+
+{% endif %}
