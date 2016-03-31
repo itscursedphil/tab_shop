@@ -1,0 +1,64 @@
+{% if contact.sent %}
+
+<section class="contact success">
+  <div class="wrapper message-fullscreen">
+    <h2>Cheers!</h2>
+    <span class="divider-wave"></span>
+    <p>Your message has been sent! We'll try to get back at you as soon as possible!</p>
+    <h3><a href="/products" class="button-big">Shop now</a></h3>
+  </div>
+</section>
+
+{% else %}
+<section class="contact top-space">
+  <div class="wrapper col1">
+
+    <div class="contact-text col2">
+      <h2>Contact us</h2>
+      <span class="divider-wave"></span>
+      <p>Feel free to reach out to us if you have any questions before or after placing your order. We'll be happy to help where we can!</p>
+    </div>
+
+    <div class="contact-form col2">
+      {% if errors != blank %}
+        <ul class="errors">
+          {% for error in errors %}
+          <li class="error-message">{{ error }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      <form method="post" action="/contact">
+        <fieldset name="name">
+          {{ contact | contact_input: 'name' }}
+          <label for="name" class="form-label-anim">Name</label>
+        </fieldset>
+
+        <fieldset name="email">
+        {{ contact | contact_input: 'email' }}
+        <label for="email" class="form-label-anim">Email</label>
+        </fieldset>
+
+        <fieldset name="subject">
+        {{ contact | contact_input: 'subject' }}
+        <label for="subject" class="form-label-anim">Subject</label>
+        </fieldset>
+
+        <fieldset name="message">
+        <label for="message">Message</label>
+        {{ contact | contact_input: 'message' }}
+        </fieldset>
+
+        <fieldset name="captcha">
+        <div class="captcha">{{ contact.captcha }}</div>
+        {{ contact | contact_input: 'captcha' }}
+        <label for="captcha">Spam check: Please enter the characters from the image above!</label>
+        </fieldset>
+
+        <button type="submit" name="submit" title="Send us an email" class="button-small"><span class="anim-underline">Send</span></button>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+{% endif %}

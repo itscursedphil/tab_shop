@@ -1,0 +1,65 @@
+{% if cart.items != blank %}
+<section class="cart top-space">
+  <div class="wrapper col1">
+  <form method="post" action="/cart">
+
+    <ul class="cart-titles cart-row">
+      <li class="cart-item-name cart-item cart-col4">Item</a></li>
+      <li class="cart-item-size cart-item cart-col2">Size</li>
+      <li class="cart-item-quantity cart-item cart-col2">Quantity</li>
+      <li class="cart-item-price cart-item cart-col2">Subtotal</li>
+    </ul>    
+
+    <div class="cart-items-wrapper">
+    {% for item in cart.items %}
+    <ul class="cart-items cart-row" id="{{ item.id }}" data-product-permalink="{{ item.product.permalink }}" data-product-option="{{ item.product.option.id }}" data-product-available="{{ item.product.option.quantity }}">
+      <li class="cart-item-name cart-item cart-col4"><a href="{{ item.product.url }}" title="{{ item.product.name }}" class="anim-underline">{{ item.product.name }}</a></li>
+      <li class="cart-item-size cart-item cart-col2">{{ item.option.name }}</li>
+      <li class="cart-item-quantity cart-item cart-col2" id="quantity-item-{{ item.id }}"><a href="#" title="Add more" class="cart-item-quantity-remove">-</a><span>{{ item.quantity }}</span><a href="#" title="Add more" class="cart-item-quantity-add">+</a></li>
+      <li class="cart-item-price cart-item cart-col2" id="price-item-{{ item.id }}">{{ item.price | money_with_code }}</li>
+      <li class="cart-item-remove cart-item"><a href="#" title="Remove item">X</a></li>
+    </ul>
+    {% endfor %}
+    </div>
+
+    <ul class="cart-total cart-row">
+      <li class="cart-total-title cart-item cart-col2">Total:</li>
+      <li class="cart-total-amount cart-item cart-col2" id="cart-total"><span>{{ cart.total | money_with_code }}</span></li>
+    </ul>
+
+    <ul class="cart-info cart-row">
+      <li class="cart-info-text cart-item cart-col4">Shipping and optional discount will be applied on checkout!</li>
+    </ul>
+
+    {% if errors != blank %}
+    <ul class="cart-errors cart-row">
+      <li class="cart-error-messages cart-item cart-col4">
+        {% for error in errors %}
+        <span class="cart-error-message">{{ error }}</span>
+        {% endfor %}
+      </li>
+    </ul>
+    {% endif %}
+
+    <ul class="cart-checkout cart-row">
+      <li class="cart-checkout-button cart-item cart-col4">
+        <a href="/products" title="Continue shopping" class="button-small button-transparent"><span class="anim-underline">Continue shopping</span></a>
+        <button type="submit" name="checkout" title="Checkout" class="button-small"><span class="anim-underline">Checkout</span></button>
+      </li>
+    </ul>
+
+  </form>
+  </div>
+</section>
+
+{% else %}
+
+<section class="cart">
+  <div class="wrapper message-fullscreen">
+    <p>Your cart is empty!<br>Start throwing stuff into your bag!</p>
+      {% if products != blank %}
+      <h3><a href="/products" class="button-big">Shop now</a></h3>
+      {% endif %}
+  </div>
+</section>
+{% endif %}

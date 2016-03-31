@@ -17,7 +17,7 @@
 			width: 100%
 			height: 100%
 			background: black
-			opacity: 0.4
+			opacity: 0.2
 			z-index: -999
 
 
@@ -65,42 +65,32 @@
 	.product
 
 		&.product-featured
-			width: 60%
-			margin: 60px auto 0 auto
+			width: 100%
+			margin: 0
 			position: fixed
-			top: 50%
-			left: 50%
-			transform: translate(-50%, -50%)
-
-			@media (max-width: 680px)
-				width: 80%
-
-			@media (max-width: 620px)
-				width: 100%
-				position: relative
-				top: auto
-				left: auto
-				transform: translate(0,0)
-				margin: 40px auto
-				padding: 40px 20px 0 20px
+			bottom: 80px
+			left: 0
+			text-align: center
+			//transform: translate(0, 50%)
+			//padding-top: 80px
 
 			.product-title
 				@media (max-width: 580px)
 					font-size: 3.6em
 
-				@media (max-width: 440px)
+				@media (max-width: 420px)
 					font-size: 3.2em
 
 
 			.divider-wave
-				background-image: url('images/thisaintbristol_screendesign_zigzag_white.svg')
+				background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_screendesign_zigzag_white.svg')
 
 header
 
 	&.lookbook
 
 		.logo
-			background-image: url('images/thisaintbristol_screendesign_logo_white.svg')
+			background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_screendesign_logo_white.svg')
 
 		.top-nav
 			.nav-links
@@ -112,7 +102,7 @@ header
 				.nav-links
 					.nav-link-item
 						&:after
-							background-image: url('images/thisaintbristol_screendesign_waves_white.svg')
+							background-image: url('https://www.thisaintbristol.com/shop/images/thisaintbristol_screendesign_waves_white.svg')
 
 footer
 	&.lookbook
